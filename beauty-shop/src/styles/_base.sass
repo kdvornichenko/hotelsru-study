@@ -1,0 +1,64 @@
+@import './_vars'
+body
+	font-family: var(--font-roboto)
+	color: var(--main-color-black)
+
+html, body
+	overflow-x: hidden
+	&.overflow-hidden
+		overflow: hidden
+
+h1,h2,h3,h4,h5,h6
+	font-family: var(--font-playfaire)
+
+h1
+	font-size: 48px
+	line-height: 56px
+	font-weight: 700
+
+h2
+	font-size: 24px
+	line-height: 28px
+
+h3
+	font-size: 18px
+	line-height: 21px
+	font-weight: 700
+
+p.text
+	font-size: 14px
+	line-height: 20px
+
+.content
+	max-width: var(--main-content-width)
+	margin-left: auto
+	margin-right: auto
+	padding-left: var(--main-content-padding-x)
+	padding-right: var(--main-content-padding-x)
+
+@media screen and ( max-width: 1241px )
+	h1
+		font-size: 40px
+		line-height: 55px
+
+	h2
+		font-size: 20px
+		line-height: 24px
+
+@media screen and ( max-width: 769px )
+	h1
+		font-size: 36px
+		line-height: 40px
+
+	h3
+		font-size: 16px
+		line-height: 17px
+
+@media screen and ( max-width: 641px )
+	h1
+		font-size: 32px
+		line-height: 36px
+
+	h2
+		font-size: 18px
+		line-height: 20px

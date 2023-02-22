@@ -1,0 +1,88 @@
+@import '../../styles/_vars'
+.banners
+	padding-bottom: 132px
+	background-color: var(--main-color-gray)
+	@media screen and ( max-width: 1025px )
+		padding-bottom: 100px
+	@media screen and ( max-width: 769px )
+		padding-bottom: 80px
+	@media screen and ( max-width: 641px )
+		padding-bottom: 60px
+	@media screen and ( max-width: 426px )
+		padding-bottom: 40px
+	.content
+		@include flex-items-center()
+		justify-content: space-between
+		gap: 10px
+		@media screen and ( max-width: 1025px )
+			flex-wrap: wrap
+			justify-content: center
+		.banner
+			padding: 35px 45px 35px 40px
+			max-width: 540px
+			width: 100%
+			@include flex-items-center()
+			justify-content: space-between
+			gap: 10px
+			color: var(--main-color-white)
+			background-color: var(--main-color-green)
+			@media screen and ( max-width: 769px )
+				padding: 15px 25px 15px 20px
+			@media screen and ( max-width: 426px )
+				display: block
+				text-align: center
+			.text-block
+				.text
+					margin-top: 25px
+				.wrapper-email, .map-btn
+					margin-top: 25px
+					height: 40px
+				.wrapper-email
+					position: relative
+					@media screen and ( min-width: 770px )
+						width: fit-content
+					.email-input
+						padding: 9px 25px
+						background-color: var(--main-color-white)
+						border-radius: 30px
+						color: var(--main-color-dark)
+						transition: $main-transition
+						@media screen and ( max-width: 426px )
+							width: 100%
+						&::placeholder
+							font-family: 'Roboto'
+							font-size: 14px
+							color: #c4c4c4
+						&.invalid
+							box-shadow: 0 0 15.5px 0 #ff0000
+					span
+						position: absolute
+						right: 4px
+						top: 4px
+						width: 30px
+						height: 30px
+						background: no-repeat center/70% url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 123.964 123.964' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''%3E%3Cg%3E%3Cpath d='M121.7 57.681 83 26.881c-4-3.1-10-.3-10 4.8v10.3c0 3.3-2.2 6.2-5.5 6.2H6c-3.3 0-6 2.4-6 5.8v16.2c0 3.2 2.7 6 6 6h61.5c3.3 0 5.5 2.601 5.5 5.9v10.3c0 5 6 7.8 9.9 4.7l38.6-30c3.2-2.3 3.3-7 .2-9.4z' fill='%23ffffff' data-original='%23000000' class=''%3E%3C/path%3E%3C/g%3E%3C/svg%3E")
+						border-radius: 100%
+						cursor: pointer
+						background-color: var(--main-color-green)
+					&.done
+						span
+							animation: ease 0.4s change-icon forwards
+						@keyframes change-icon
+							0%
+								background-position-x: center
+							50%
+								background-position-x: 350%
+							80%
+								background-image: none
+								background-position-x: -250%
+							100%
+								background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='512' height='512' x='0' y='0' viewBox='0 0 469.184 469.185' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''%3E%3Cg%3E%3Cpath d='m462.5 96.193-21.726-21.726c-8.951-8.95-23.562-8.95-32.59 0L180.368 302.361l-119.34-119.34c-8.95-8.951-23.562-8.951-32.589 0L6.712 204.747c-8.95 8.951-8.95 23.562 0 32.589L163.997 394.62c4.514 4.514 10.327 6.809 16.218 6.809s11.781-2.295 16.219-6.809L462.27 128.783c9.18-9.103 9.18-23.638.23-32.59z' fill='%23ffffff' data-original='%23000000'%3E%3C/path%3E%3C/g%3E%3C/svg%3E%0A")
+								background-position-x: center
+				.map-btn
+					@include round-btn(9px 29px, var(--main-color-white), var(--main-color-white), 30px, var(--main-color-green), var(--main-color-green), var(--main-color-white) )
+			img
+				@media screen and ( max-width: 641px )
+					width: 30%
+				@media screen and ( max-width: 426px )
+					display: none

@@ -1,0 +1,25 @@
+@import '../../styles/_vars'
+.first-screen
+	background-color: var(--main-color-green)
+	.content
+		color: var(--main-color-white)
+		@include flex-items-center()
+		gap: 12px
+		@media screen and ( max-width: 600px )
+			padding: 15px
+		@media screen and ( max-width: 470px )
+			flex-direction: column
+			gap: 10px
+		.cta
+			max-width: 320px
+			@media screen and ( max-width: 470px )
+				align-self: flex-start
+			.text
+				margin-top: 45px
+				@media screen and ( max-width: 769px )
+					margin-top: 20px
+			.more-btn
+				margin-top: 45px
+				@media screen and ( max-width: 769px )
+					margin-top: 20px
+				@include round-btn(13px 42px, var(--main-color-white), var(--main-color-white), 40px, var(--main-color-green), var(--main-color-green), var(--main-color-white))

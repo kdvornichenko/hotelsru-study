@@ -1,0 +1,71 @@
+@import '../../styles/_vars'
+.footer
+	.content
+		.main
+			padding: 38px 0
+			@include flex-items-center()
+			justify-content: space-between
+			background-color: var(--main-color-white)
+			@media screen and ( max-width: 1025px )
+				padding: 20px 0
+			@media screen and ( max-width: 769px )
+				flex-wrap: wrap
+				gap: 20px
+				justify-content: center
+			.socials
+				@include flex-items-center()
+				gap: 20px
+				@media screen and ( max-width: 769px )
+					order: 3
+				a
+					circle, path
+						transition: $main-transition
+				a:hover
+					.youtube-icon
+						circle
+							stroke: #FF0000
+						path
+							fill: #FF0000
+					.vk-icon
+						circle
+							stroke: #0077FF
+						path
+							fill: #0077FF
+					.facebook-icon
+						circle
+							stroke: #4267B2
+						path
+							fill: #4267B2
+					.instagram-icon
+						circle
+							stroke: #C13584
+						path
+							fill: #C13584
+			.call
+				@include flex-items-center()
+				gap: 40px
+				@media screen and ( max-width: 1025px )
+					flex-direction: column
+					gap: 10px
+				&__btn
+					@include round-btn(13px 26px, var(--main-color-black), var(--main-color-green), 40px, var(--main-color-white), var(--main-color-white), var(--main-color-green))
+	.wrapper-rights
+		background-color: var(--main-color-gray)
+		.rights
+			max-width: var(--main-content-width)
+			margin: auto
+			padding: 25px var(--main-content-padding-x)
+			@include flex-items-center()
+			justify-content: space-between
+			font-size: 12px
+			line-height: 14px
+			color: #828282
+			@media screen and ( max-width: 426px )
+				flex-direction: column
+				gap: 20px
+			span
+				@media screen and ( max-width: 1025px )
+					width: 50%
+				@media screen and ( max-width: 426px )
+					width: 100%
+					text-align: center

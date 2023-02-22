@@ -1,0 +1,155 @@
+:root
+	// Font family
+	--font-roboto: 'Roboto', sans-serif
+
+	// Colors
+	--main-color-black: #000
+	--main-color-dark: #333
+	--main-color-gray: #EFEFEF
+	--main-color-green: #66C05D
+	--main-color-white: #fff
+
+	// Opacity
+
+	// Shadows
+
+	// Dimensions
+	--main-content-width: 1140px
+	--main-content-padding-x: 15px
+	--mobile-menu-width: 220px
+
+$main-transition: all 0.2s ease-in-out
+
+@mixin flex-items-center()
+	display: flex
+	align-items: center
+
+@mixin call()
+	@include flex-items-center
+	gap: 40px
+	&__number
+		font-size: 16px
+
+@mixin round-btn($paddings, $color, $border-color, $border-radius, $bg-color, $color-hover, $bg-hover)
+	padding: $paddings
+	font-size: 14px
+	color: $color
+	border: 2px solid $border-color
+	border-radius: $border-radius
+	background-color: $bg-color
+	transition: $main-transition
+	&:hover
+		color: $color-hover
+		background-color: $bg-hover
+
+@mixin pseudo-elem($width, $height, $background)
+	position: absolute
+	content: ''
+	width: $width
+	height: $height
+	background: $background
+
+@mixin underline-on-hover($height, $background)
+	position: relative
+	&::before
+		@include pseudo-elem(0, 1px, $background)
+		bottom: 0
+		transition: $main-transition
+	&:hover::before
+		width: 100%
+
+@mixin mobile-menu-blur($color, $blur)
+	background: $color
+	backdrop-filter: blur($blur)
+
+@mixin burger()
+	width: 35px
+	height: 35px
+	position: fixed
+	right: var(--main-content-padding-x)
+	top: 12px
+	display: flex
+	align-items: center
+	justify-content: center
+	flex-direction: column
+	gap: 3px
+	background-color: var(--main-color-black)
+	border-radius: 100%
+	cursor: pointer
+	z-index: 4
+	span
+		position: relative
+		display: block
+		width: 21px
+		box-shadow: 0 2px 10px 0 rgba(0,0,0,0.3)
+		border-radius: 3px
+		height: 2px
+		background: var(--main-color-white)
+		transition: all .3s
+	&.active
+		span:first-child
+			animation: ease .6s top forwards
+	span:first-child
+		animation: ease .6s top-2 forwards
+	&.active
+		span:nth-child(2)
+			animation: ease .6s scaled forwards
+	span:nth-child(2)
+		animation: ease .6s scaled-2 forwards
+	&.active
+		span:last-child
+			animation: ease .6s bottom forwards
+	span:last-child
+		animation: ease .6s bottom-2 forwards
+	@keyframes top
+		0%
+			top: 0
+			transform: rotate(0)
+		50%
+			top: 5px
+			transform: rotate(0)
+		100%
+			top: 5px
+			transform: rotate(45deg)
+	@keyframes top-2
+		0%
+			top: 5px
+			transform: rotate(45deg)
+		50%
+			top: 5px
+			transform: rotate(0deg)
+		100%
+			top: 0
+			transform: rotate(0deg)
+	@keyframes bottom
+		0%
+			bottom: 0
+			transform: rotate(0)
+		50%
+			bottom: 5px
+			transform: rotate(0)
+		100%
+			bottom: 5px
+			transform: rotate(135deg)
+	@keyframes bottom-2
+		0%
+			bottom: 5px
+			transform: rotate(135deg)
+		50%
+			bottom: 5px
+			transform: rotate(0)
+		100%
+			bottom: 0
+			transform: rotate(0)
+	@keyframes scaled
+		50%
+			transform: scale(0)
+		100%
+			transform: scale(0)
+	@keyframes scaled-2
+		0%
+			transform: scale(0)
+		50%
+			transform: scale(0)
+		100%
+			transform: scale(1)

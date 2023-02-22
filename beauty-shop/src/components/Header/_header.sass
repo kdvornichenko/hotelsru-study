@@ -1,0 +1,132 @@
+@import '../../styles/_vars'
+.header
+	.info
+		padding: 16px 0
+		font-size: 14px
+		color: var(--main-color-dark)
+		background-color: var(--main-color-gray)
+		ul
+			@include flex-items-center
+			justify-content: center
+			gap: 30px
+			li
+				@include underline-on-hover(1px, var(--main-color-black))
+	.mobile-menu
+		display: none
+	.content
+		padding-top: 20px
+		padding-bottom: 20px
+		@include flex-items-center
+		justify-content: space-between
+		.logo
+			a
+				@include flex-items-center
+				font-weight: 700
+				font-size: 36px
+				line-height: 42px
+				letter-spacing: 0.1em
+				color: var(--main-color-green)
+				gap: 20px
+			&__text
+				@media screen and ( max-width: 376px )
+					display: none
+		.call
+			@include call()
+			&__btn
+				@include round-btn(13px 26px, var(--main-color-black), var(--main-color-green), 40px, var(--main-color-white), var(--main-color-white), var(--main-color-green))
+	hr
+		height: 1px
+		background-color: var(--main-color-gray)
+	.nav
+		padding: 30px 0
+		position: relative
+		ul
+			@include flex-items-center()
+			justify-content: center
+			gap: 40px
+			font-size: 16px
+			li
+				@include underline-on-hover(1px, var(--main-color-dark))
+@media screen and ( max-width: 700px )
+	.header
+		.info
+			display: none
+		.content
+			padding: 6px 65px 6px var(--main-content-padding-x)
+			.logo
+				a
+					font-size: 22px
+					gap: 10px
+					img
+						width: 50px
+			.call
+				flex: 1 0 auto
+				justify-content: space-evenly
+				gap: unset
+				&__number
+					font-size: 12px
+				&__btn
+					padding: 8px 12px
+					font-size: 12px
+		.nav
+			display: none
+		.mobile-menu
+			padding: 60px var(--main-content-padding-x) 0
+			width: var(--mobile-menu-width)
+			height: 100%
+			position: fixed
+			right: -220px
+			top: 0
+			display: flex
+			flex-direction: column
+			justify-content: center
+			text-align: right
+			background-color: var(--main-color-white)
+			transition: $main-transition
+			z-index: 2
+			overflow-y: auto
+			&.active
+				right: 0
+				& + .blur
+					opacity: 1
+			.info
+				display: block
+				background-color: var(--main-color-white)
+				ul
+					flex-wrap: wrap
+					justify-content: flex-end
+					gap: 10px
+					li, li::before
+						opacity: 0.6
+			.nav
+				display: block
+				ul
+					font-size: 18px
+					flex-direction: column
+					align-items: flex-end
+					gap: 20px
+			&-container
+				.blur
+					position: fixed
+					z-index: 1
+					width: 100%
+					height: 100%
+					top: 0
+					left: 0
+					opacity: 0
+					visibility: hidden
+					transition: $main-transition
+					@include mobile-menu-blur(#bab9b980, 3px )
+					&.active
+						visibility: visible
+		.burger
+			@include burger()
+
+@media screen and ( max-width: 500px )
+	.header
+		.content
+			.call
+				flex-direction: column
+				gap: 5px
+			.burger
+				top: 17px
