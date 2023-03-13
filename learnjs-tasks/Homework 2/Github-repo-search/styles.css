@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+* {
+  color: #dedede;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #1b1b1b;
+}
+
+.conatiner {
+  max-width: 832px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+.conatiner .search-container {
+  position: relative;
+  height: 35px;
+  display: flex;
+  gap: 10px;
+}
+.conatiner .search-container #search-input {
+  width: 80%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(153, 153, 153, 0.631372549);
+  font-size: 16px;
+  outline: none;
+}
+.conatiner .search-container #search-input::-moz-placeholder {
+  padding-left: 2px;
+}
+.conatiner .search-container #search-input:-ms-input-placeholder {
+  padding-left: 2px;
+}
+.conatiner .search-container #search-input::placeholder {
+  padding-left: 2px;
+}
+.conatiner .search-container #search-btn {
+  width: 20%;
+  background-color: #007bff;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+.conatiner .search-container #search-btn:hover {
+  background-color: #025ec2;
+}
+.conatiner #result-container ul {
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+.conatiner #result-container ul > li {
+  margin-top: 10px;
+  gap: 10px;
+  font-size: 12px;
+}
+.conatiner #result-container ul > li > a {
+  margin-right: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.conatiner #result-container ul > li:first-child {
+  margin-top: 0;
+}
+.conatiner #result-container .loader {
+  margin: 20px auto;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, transparent 40%, #ee55ff);
+  -webkit-animation: spinny 1.5s linear infinite;
+          animation: spinny 1.5s linear infinite;
+}
+.conatiner #result-container .loader::before {
+  content: "";
+  position: absolute;
+  top: 1.25px;
+  left: 1.25px;
+  right: 1.25px;
+  bottom: 1.25px;
+  z-index: 100;
+  background: #111;
+  border-radius: 50%;
+}
+.conatiner #result-container .loader::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.25px;
+  right: 1.25px;
+  bottom: 1.25px;
+  z-index: 1;
+  background: linear-gradient(45deg, transparent, transparent 40%, #ee55ff);
+  border-radius: 50%;
+  filter: blur(10px);
+}
+@-webkit-keyframes spinny {
+  0% {
+    transform: rotate(0);
+    filter: hue-rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes spinny {
+  0% {
+    transform: rotate(0);
+    filter: hue-rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}/*# sourceMappingURL=styles.css.map */

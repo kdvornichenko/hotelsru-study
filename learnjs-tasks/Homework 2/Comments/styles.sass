@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap')
+
+body
+	font-family: 'Roboto', sans-serif
+
+.comments
+	width: 100%
+	max-width: 800px
+	margin: 0 auto
+	padding: 20px
+	box-sizing: border-box
+
+	& h2
+		font-size: 24px
+		font-weight: bold
+		margin-bottom: 10px
+
+	& form
+		display: flex
+		flex-direction: column
+		margin-top: 20px
+
+	& label
+		font-size: 16px
+		font-weight: bold
+		margin-bottom: 5px
+
+.comments input[type='text'],
+.comments textarea
+	padding: 10px
+	margin-bottom: 10px
+	border: 1px solid #ccc
+	border-radius: 5px
+
+.comments input[type='text']:focus,
+.comments textarea:focus
+	border-color: #007bff
+
+.comments .error-message
+	color: red
+	font-size: 14px
+	margin-bottom: 10px
+
+.comments #date
+	margin-bottom: 20px
+	height: 40px
+
+.comments button[type='submit']
+	background-color: #007bff
+	color: #fff
+	padding: 10px
+	border: none
+	border-radius: 5px
+	cursor: pointer
+	font-size: 16px
+	font-weight: bold
+
+	&:hover
+		background-color: #0069d9
+
+.comments #comment-list
+	list-style: none
+	margin: 0
+	padding: 0
+
+.comments .comment
+	margin-bottom: 20px
+	padding: 10px
+	border: 1px solid #ccc
+	border-radius: 5px
+	position: relative
+
+	& span
+		width: 20px
+		height: 20px
+
+	& .delete
+		width: 15px
+		height: 15px
+		position: absolute
+		top: 10px
+		right: 10px
+		cursor: pointer
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='auto' height='auto' x='0' y='0' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512' xml:space='preserve' class=''%3E%3Cg%3E%3Cpath d='M424 64h-88V48c0-26.467-21.533-48-48-48h-64c-26.467 0-48 21.533-48 48v16H88c-22.056 0-40 17.944-40 40v56c0 8.836 7.164 16 16 16h8.744l13.823 290.283C87.788 491.919 108.848 512 134.512 512h242.976c25.665 0 46.725-20.081 47.945-45.717L439.256 176H448c8.836 0 16-7.164 16-16v-56c0-22.056-17.944-40-40-40zM208 48c0-8.822 7.178-16 16-16h64c8.822 0 16 7.178 16 16v16h-96zM80 104c0-4.411 3.589-8 8-8h336c4.411 0 8 3.589 8 8v40H80zm313.469 360.761A15.98 15.98 0 0 1 377.488 480H134.512a15.98 15.98 0 0 1-15.981-15.239L104.78 176h302.44z' fill='%23000000' data-original='%23000000'%3E%3C/path%3E%3Cpath d='M256 448c8.836 0 16-7.164 16-16V224c0-8.836-7.164-16-16-16s-16 7.164-16 16v208c0 8.836 7.163 16 16 16zM336 448c8.836 0 16-7.164 16-16V224c0-8.836-7.164-16-16-16s-16 7.164-16 16v208c0 8.836 7.163 16 16 16zM176 448c8.836 0 16-7.164 16-16V224c0-8.836-7.164-16-16-16s-16 7.164-16 16v208c0 8.836 7.163 16 16 16z' fill='%23000000' data-original='%23000000'%3E%3C/path%3E%3C/g%3E%3C/svg%3E")
+
+	& .like
+		width: 15px
+		height: 15px
+		position: absolute
+		top: 10px
+		right: 30px
+		cursor: pointer
+		transition: color 0.2s ease-in-out
+
+	& .like svg path
+		transition: fill 0.2s ease-in-out
+
+	& .like:hover svg path
+		fill: rgb(250, 136, 136)
+
+	& .like.active svg path
+		fill: #f00
+
+	& p
+		margin: 0
+		padding: 0
+
+	& .text
+		margin: 20px 0
+
+	& .date
+		font-size: 12px
+		opacity: 0.6
