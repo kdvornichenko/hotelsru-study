@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="icon" type="image/x-icon" href="favicon.svg" />
+		<title>Comments block</title>
+	</head>
+	<body>
+		<div class="comments">
+			<h2>Комментарии</h2>
+			<ul id="comment-list"></ul>
+			<form id="comment-form">
+				<label for="name">Имя:</label>
+				<input type="text" id="name" name="name" />
+				<span class="error-message" id="name-error"></span>
+				<label for="comment">Комментарий:</label>
+				<textarea id="comment" name="comment"></textarea>
+				<span class="error-message" id="comment-error"></span>
+				<label for="date">Дата:</label>
+				<input type="date" id="date" name="date" pattern="\d{4}-\d{2}-\d{2}" />
+				<button type="submit">Отправить</button>
+			</form>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>

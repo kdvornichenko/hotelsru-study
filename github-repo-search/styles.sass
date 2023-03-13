@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap')
+
+// Loader 
+$size: 50px
+$gradientSize: ($size / 40)
+$background: linear-gradient(45deg, transparent, transparent 40%, #ee55ff)
+
+// Vars
+$white: #dedede
+$main: #1b1b1b
+
+*
+	color: $white
+
+body
+	margin: 0
+	padding: 0
+	font-family: 'Roboto', sans-serif
+	background-color: $main
+.conatiner
+	max-width: 832px
+	margin: 40px auto
+	padding: 0 16px
+	& .search-container
+		position: relative
+		height: 35px
+		display: flex
+		gap: 10px
+		#search-input
+			width: 80%
+			background-color: transparent
+			border: none
+			border-bottom: 1px solid #999999a1
+			font-size: 16px
+			outline: none
+			&::placeholder
+				padding-left: 2px
+		#search-btn
+			width: 20%
+			background-color: #007bff
+			border-radius: 10px
+			border: none
+			color: #fff
+			transition: background-color 0.2s ease-in-out
+			cursor: pointer
+			&:hover
+				background-color: #025ec2
+	#result-container
+		ul
+			margin: 20px 0
+			padding: 0
+			list-style: none
+			& > li
+				margin-top: 10px
+				gap: 10px
+				font-size: 12px
+				& > a
+					margin-right: 5px
+					font-size: 18px
+					font-weight: bold
+			& > li:first-child
+				margin-top: 0
+		.loader
+			margin: 20px auto
+			position: relative
+			width: $size
+			height: $size
+			border-radius: 50%
+			background: $background
+			animation: spinny 1.5s linear infinite
+		.loader::before
+			content: ""
+			position: absolute
+			top: $gradientSize
+			left: $gradientSize
+			right: $gradientSize
+			bottom: $gradientSize
+			z-index: 100
+			background: #111
+			border-radius: 50%
+		.loader::after
+			content: ""
+			position: absolute
+			top: 0
+			left: $gradientSize
+			right: $gradientSize
+			bottom: $gradientSize
+			z-index: 1
+			background: $background
+			border-radius: 50%
+			filter: blur($size / 5)
+		@keyframes spinny
+			0%
+				transform: rotate(0)
+				filter: hue-rotate(0)
+			100%
+				transform: rotate(360deg)
+				filter: hue-rotate(360deg)
