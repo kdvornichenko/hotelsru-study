@@ -130,6 +130,8 @@ loadComments()
 function formatDatesOnPage() {
 	const today = new Date()
 	const yesterday = new Date(today - 24 * 60 * 60 * 1000)
+	const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000)
+	console.log(tomorrow)
 	const dateElements = document.querySelectorAll('.comment .date')
 
 	for (let i = 0; i < dateElements.length; i++) {
@@ -152,6 +154,8 @@ function formatDatesOnPage() {
 				dateElements[i].textContent = 'Сегодня, ' + timeString
 			} else if (date.toDateString() === yesterday.toDateString()) {
 				dateElements[i].textContent = 'Вчера, ' + timeString
+			} else if (date.toDateString() === tomorrow.toDateString()) {
+				dateElements[i].textContent = 'Завтра? ' + timeString
 			} else {
 				dateElements[i].textContent = dateParts[0] + ', ' + timeString
 			}
