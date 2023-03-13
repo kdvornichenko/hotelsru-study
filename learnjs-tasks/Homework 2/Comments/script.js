@@ -16,7 +16,7 @@ function addComment(comment) {
     <p class="text">${comment.comment}</p>
     <p class="date">${comment.date}</p>
     <span class="delete" title="Удалить комментарий"></span>
-    <span class="like" title="Лайкнуть комментарий">&#10084;</span>
+    <span class="like" title="Лайкнуть комментарий"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="15" height="15" x="0" y="0" viewBox="0 0 391.837 391.837" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M285.257 35.528c58.743.286 106.294 47.836 106.58 106.58 0 107.624-195.918 214.204-195.918 214.204S0 248.165 0 142.108c0-58.862 47.717-106.58 106.58-106.58a105.534 105.534 0 0 1 89.339 48.065 106.578 106.578 0 0 1 89.338-48.065z" style="" fill="#ccc" data-original="#ccc"></path></g></svg></span>
   `
 	commentList.prepend(li)
 
