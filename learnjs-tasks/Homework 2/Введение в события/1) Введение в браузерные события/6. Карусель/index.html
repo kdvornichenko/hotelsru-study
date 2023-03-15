@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<style>
+		.container {
+			max-width: 390px;
+			overflow: hidden;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			list-style: none;
+		}
+	</style>
+	<body>
+		<button class="arrow prev">⇦</button>
+		<button class="arrow next">⇨</button>
+
+		<div class="container">
+			<ul>
+				<li><img src="https://ru.js.cx/carousel/1.png" /></li>
+				<li><img src="https://ru.js.cx/carousel/2.png" /></li>
+				<li><img src="https://ru.js.cx/carousel/3.png" /></li>
+				<li><img src="https://ru.js.cx/carousel/4.png" /></li>
+				<li><img src="https://ru.js.cx/carousel/5.png" /></li>
+				<li><img src="https://ru.js.cx/carousel/6.png" /></li>
+				<li><img src="https://ru.js.cx/carousel/7.png" /></li>
+				<li><img src="https://ru.js.cx/carousel/8.png" /></li>
+				<li><img src="https://ru.js.cx/carousel/9.png" /></li>
+				<li><img src="https://ru.js.cx/carousel/10.png" /></li>
+			</ul>
+		</div>
+
+		<script>
+			const nextArrow = document.querySelector('.arrow.next')
+			const prevArrow = document.querySelector('.arrow.prev')
+			const imgList = document.querySelector('ul')
+			const imgWidth = document.querySelector('img').offsetWidth
+
+			nextArrow.addEventListener('click', () => carousel('next'))
+			prevArrow.addEventListener('click', () => carousel('prev'))
+
+			let swipe = 0
+
+			function carousel(arrow) {
+				if (arrow == 'next') {
+					if (swipe <= -910) return
+					swipe -= imgWidth
+					imgList.style.transform = `translateX(${swipe}px)`
+				} else {
+					if (swipe >= 0) return
+					swipe += imgWidth
+					imgList.style.transform = `translateX(${swipe}px)`
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			* {
+				font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+					'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			}
+			div,
+			textarea {
+				padding: 10px;
+				width: 500px;
+				max-height: 50vh;
+				border: 2px solid #007bff;
+				border-radius: 10px;
+				font-size: 16px;
+				overflow-y: auto;
+			}
+		</style>
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="div">
+			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam dolorem
+			exercitationem maiores libero repellat sint alias, animi nulla ab enim!
+		</div>
+		<script>
+			const div = document.getElementById('div')
+
+			div.addEventListener('click', function () {
+				const textarea = document.createElement('textarea')
+				textarea.style.height = div.scrollHeight + 'px'
+				textarea.addEventListener('input', function () {
+					this.style.height = 'auto'
+					this.style.height = this.scrollHeight + 'px'
+				})
+				// Регулярка, потому что редактор переносит текст на новую строку, а textarea считает это и при редактировании добавляет огромный пробел
+				const regex = /[\n\t]/g
+
+				textarea.value = div.innerHTML.trim().replace(regex, ' ')
+				div.replaceWith(textarea)
+
+				textarea.addEventListener('keydown', function (e) {
+					if (e.key === 'Enter') {
+						e.preventDefault()
+						div.innerHTML = textarea.value
+						textarea.replaceWith(div)
+					}
+				})
+
+				textarea.addEventListener('blur', function () {
+					div.innerHTML = textarea.value
+					textarea.replaceWith(div)
+				})
+			})
+		</script>
+	</body>
+</html>

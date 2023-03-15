@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			}
+			#title {
+				padding-left: 20px;
+				width: fit-content;
+				position: relative;
+				cursor: pointer;
+			}
+
+			#title::before {
+				content: '▶';
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: green;
+				transition: transform 0.2s ease-in-out;
+			}
+
+			#list {
+				height: 0;
+				overflow: hidden;
+				transition: height 0.2s ease-in-out;
+			}
+
+			#list.active {
+				height: 70px;
+			}
+
+			.menu:has(.active) #title::before {
+				transform: rotate(90deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="menu">
+			<div id="title" class="title">Сладости (нажми меня)!</div>
+			<ul id="list">
+				<li>Пирожное</li>
+				<li>Пончик</li>
+				<li>Мёд</li>
+			</ul>
+		</div>
+		<script>
+			title.addEventListener('click', () => {
+				list.classList.toggle('active')
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			body {
+				position: relative;
+				max-width: 500px;
+				margin: auto;
+				font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+					sans-serif;
+				text-align: center;
+			}
+
+			p {
+				font-size: 20px;
+				font-weight: bold;
+			}
+
+			.notification {
+				padding: 5px;
+				position: absolute;
+				background: white;
+				border-radius: 6px;
+				font-size: 20px;
+				text-align: center;
+				z-index: 2;
+			}
+
+			.hi {
+				background: #ff0000;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<p>Уведомление:</p>
+
+		<script>
+			function showNotification({ top = 0, right = 0, className, html }) {
+				let notification = document.createElement('div')
+				notification.className = 'notification'
+				if (className) {
+					notification.classList.add(className)
+				}
+
+				notification.style.top = top + 'px'
+				notification.style.right = right + '%'
+
+				notification.innerHTML = html
+				document.body.append(notification)
+
+				setTimeout(() => notification.remove(), 1000)
+			}
+
+			setInterval(() => {
+				showNotification({
+					top: 0,
+					right: 10,
+					html: 'Hello ',
+					className: 'hi',
+				})
+			}, 2000)
+		</script>
+	</body>
+</html>
