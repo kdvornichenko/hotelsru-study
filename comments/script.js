@@ -131,7 +131,6 @@ function formatDatesOnPage() {
 	const today = new Date()
 	const yesterday = new Date(today - 24 * 60 * 60 * 1000)
 	const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000)
-	console.log(tomorrow)
 	const dateElements = document.querySelectorAll('.comment .date')
 
 	for (let i = 0; i < dateElements.length; i++) {
